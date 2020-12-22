@@ -6,4 +6,9 @@
     <string name="password">Contraseña: </string>
     <string name="txtPassword">Introduce la contraseña</string>
     <string name="btnAccept">Iniciar sesión</string>
+
+    <!--SingIn Activity-->
+    <string name="greeting">¡BIENVENID@!</string>
+    <string name="txUserName"></string>
+    <string name="btnCloseSesion">Cerrar Sesión</string>
 </resources>

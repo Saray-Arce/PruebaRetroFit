@@ -36,22 +36,31 @@ public class MainActivity extends AppCompatActivity {
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick (View v){
-                UserInterface userInterface = UserAPIClient.findUserByLoginAndPasswd( txtUser.getText().toString(), txtPasswd.getText().toString());
-
-                Call<User> call = (Call<User>) userInterface.find(new Integer(1));
+                String login = txtUser.getText().toString();
+            //    Toast.makeText(getApplicationContext(), "Hola! "+login, Toast.LENGTH_SHORT).show();
+                String pass = txtPasswd.getText().toString();
+                UserInterface userInterface = UserAPIClient.findUserByLoginAndPasswd( login, pass);
+                Call<User> call = (Call<User>) userInterface.findUserByLoginAndPasswd(new String (login), new String(pass));
 
                 call.enqueue(new Callback<User>() {
                     @Override
                     public void onResponse(Call<User> call, Response<User> response) {
+                        if(response.code() == 200) {
+                            Intent intent  = new Intent (MainActivity.this, SignInActivity.class);
+                            startActivity(intent);
 
+                        }
+                        if(response.code() >=400){
+                            Toast.makeText(getApplicationContext(), "Ha ocurrido un error!", Toast.LENGTH_SHORT).show();
+                        }
                     }
 
                     @Override
                     public void onFailure(Call<User> call, Throwable t) {
-
+                        Toast.makeText(getApplicationContext(), "Ha ocurrido un error vol.2!", Toast.LENGTH_SHORT).show();
                     }
                 });
-                Toast.makeText(getApplicationContext(), "Ha ocurrido un error!", Toast.LENGTH_SHORT).show();
+
             }
         });
 

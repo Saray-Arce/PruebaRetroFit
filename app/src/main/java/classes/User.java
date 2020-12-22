@@ -9,23 +9,23 @@ import enumerations.Userstatus;
 
 public class User implements Serializable {
 
-    @SerializedName("id")
+ //   @SerializedName("id")
     private Integer id;
-    @SerializedName("login")
+ //   @SerializedName("login")
     private String login;
-    @SerializedName("email")
+//    @SerializedName("email")
     private String email;
-    @SerializedName("fullname")
+//    @SerializedName("fullname")
     private String fullname;
-    @SerializedName("status")
+//    @SerializedName("status")
     private Userstatus status;
-    @SerializedName("privilege")
+ //   @SerializedName("privilege")
     private UserPrivilege privilege;
-    @SerializedName("passwd")
+ //   @SerializedName("passwd")
     private String passwd;
-    @SerializedName("lastAccess")
+ //   @SerializedName("lastAccess")
     private java.sql.Date lastAccess;
-    @SerializedName("lastPasswdChange")
+ //   @SerializedName("lastPasswdChange")
     private java.sql.Date lastPasswdChange;
  //   private Set<UserPlant> plants;
  //   private Set<Equipment> equipments;
